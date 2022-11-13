@@ -40,8 +40,8 @@ class ShopApp extends StatelessWidget {
           GoRoute(
               path: 'product_details/:productId',
               builder: (BuildContext context, GoRouterState state) {
-                final String title = state.params['productId']!;
-                return ProductDetailsScreen(title: title);
+                final String productId = state.params['productId']!;
+                return ProductDetailsScreen(productId: productId);
               },
               routes: <GoRoute>[]),
         ]),

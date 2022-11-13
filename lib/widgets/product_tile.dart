@@ -15,7 +15,7 @@ class ProductTile extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(8.0),
       child: GestureDetector(
-        onTap: () => context.go('/product_details/$title'),
+        onTap: () => context.go('/product_details/$id'),
         child: GridTile(
           footer: GridTileBar(
             leading: IconButton(
