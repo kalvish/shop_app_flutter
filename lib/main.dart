@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shop_app/providers/Products.dart';
+import 'package:shop_app/screens/product_details_screen.dart';
 import 'package:shop_app/screens/product_overview_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -9,23 +11,39 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (_) => Products()),
       ],
-      child: const ShopApp(),
+      child: ShopApp(),
     ),
   );
 }
 
 class ShopApp extends StatelessWidget {
-  const ShopApp({Key? key}) : super(key: key);
+  ShopApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: router,
       theme: ThemeData(
           colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.teal),
           fontFamily: 'Nunito'),
       debugShowCheckedModeBanner: false,
       title: 'Shop app',
-      home: ProductOverviewScreen(),
     );
   }
+
+  final GoRouter router = GoRouter(routes: <GoRoute>[
+    GoRoute(
+        path: '/',
+        builder: (BuildContext context, GoRouterState state) =>
+            ProductOverviewScreen(),
+        routes: <GoRoute>[
+          GoRoute(
+              path: 'product_details/:productId',
+              builder: (BuildContext context, GoRouterState state) {
+                final String title = state.params['productId']!;
+                return ProductDetailsScreen(title: title);
+              },
+              routes: <GoRoute>[]),
+        ]),
+  ]);
 }
