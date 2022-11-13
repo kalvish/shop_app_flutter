@@ -11,6 +11,29 @@ class ProductTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridTile(child: Image.network(this.imageUrl));
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(8.0),
+      child: GridTile(
+        footer: GridTileBar(
+          leading: IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.favorite),
+          ),
+          trailing: IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.shopping_cart),
+          ),
+          backgroundColor: Colors.teal.shade200.withOpacity(0.5),
+          title: Text(
+            title,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: 'Nunito',
+            ),
+          ),
+        ),
+        child: Image.network(imageUrl, fit: BoxFit.cover),
+      ),
+    );
   }
 }

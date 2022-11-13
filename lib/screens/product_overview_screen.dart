@@ -44,7 +44,6 @@ class ProductOverviewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.teal,
         title: Text(
           'Shop app',
           style: TextStyle(
@@ -56,8 +55,12 @@ class ProductOverviewScreen extends StatelessWidget {
         ),
       ),
       body: GridView.builder(
-        gridDelegate:
-            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        padding: const EdgeInsets.all(16.0),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          mainAxisSpacing: 8.0,
+          crossAxisSpacing: 8.0,
+        ),
         itemCount: productsStore.length,
         itemBuilder: (BuildContext context, int index) {
           return ProductTile(

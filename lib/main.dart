@@ -11,6 +11,9 @@ class ShopApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+          colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.teal),
+          fontFamily: 'Nunito'),
       debugShowCheckedModeBanner: false,
       title: 'Shop app',
       home: ProductOverviewScreen(),

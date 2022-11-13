@@ -79,6 +79,10 @@ flutter:
     - family: SourceSansPro
       fonts:
         - asset: fonts/SourceSansPro-Regular.ttf
+    - family: Nunito
+      fonts:
+        - asset: fonts/Nunito-Regular.ttf
+          weight: 700
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
